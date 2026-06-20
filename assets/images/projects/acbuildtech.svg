@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="AC BuildTech corporate site preview">
+  <rect width="1200" height="900" fill="#f2f2f2"/>
+  <rect x="56" y="56" width="1088" height="788" rx="34" fill="#ffffff" stroke="#d4d4d4"/>
+  <rect x="96" y="104" width="164" height="24" rx="12" fill="#171717"/>
+  <rect x="96" y="162" width="424" height="260" rx="28" fill="#d9d9d9"/>
+  <rect x="560" y="164" width="488" height="36" rx="18" fill="#a3a3a3"/>
+  <rect x="560" y="220" width="400" height="20" rx="10" fill="#c2c2c2"/>
+  <rect x="560" y="260" width="444" height="20" rx="10" fill="#b0b0b0"/>
+  <rect x="560" y="316" width="146" height="54" rx="27" fill="#171717"/>
+  <rect x="96" y="466" width="1008" height="296" rx="28" fill="#ececec"/>
+  <rect x="132" y="500" width="220" height="22" rx="11" fill="#171717"/>
+  <rect x="132" y="550" width="198" height="154" rx="22" fill="#6b7280"/>
+  <rect x="356" y="550" width="198" height="154" rx="22" fill="#b45309"/>
+  <rect x="580" y="550" width="198" height="154" rx="22" fill="#9ca3af"/>
+  <rect x="804" y="550" width="198" height="154" rx="22" fill="#111111"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Portrait illustration">
+  <rect width="800" height="1000" fill="#ececec"/>
+  <rect x="88" y="76" width="624" height="848" rx="42" fill="#f7f7f7" stroke="#d4d4d4"/>
+  <circle cx="400" cy="350" r="152" fill="#d6d6d6"/>
+  <path d="M258 784c20-118 77-182 142-182s122 64 142 182" fill="#cfcfcf"/>
+  <rect x="284" y="236" width="232" height="30" rx="15" fill="#bdbdbd"/>
+  <rect x="314" y="286" width="172" height="18" rx="9" fill="#a3a3a3"/>
+  <rect x="292" y="538" width="216" height="132" rx="24" fill="#171717"/>
+  <rect x="312" y="558" width="176" height="18" rx="9" fill="#fafafa"/>
+  <rect x="312" y="592" width="128" height="18" rx="9" fill="#fafafa" opacity="0.82"/>
+  <rect x="312" y="626" width="150" height="18" rx="9" fill="#fafafa" opacity="0.82"/>
+  <circle cx="400" cy="434" r="18" fill="#fafafa"/>
+  <path d="M350 452c20 30 80 30 100 0" stroke="#fafafa" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <rect x="540" y="156" width="68" height="68" rx="18" fill="#bdbdbd"/>
+  <rect x="156" y="184" width="74" height="74" rx="20" fill="#d0d0d0"/>
+</svg>
