@@ -40,7 +40,7 @@ export function initMotion() {
 
   const cards = document.querySelectorAll('.work-card[data-status="live"]');
   cards.forEach((card) => {
-    const img = card.querySelector('img');
+    const img = card.querySelector('iframe, img');
     const arrow = card.querySelector('.project-arrow');
     if (!img || !arrow) return;
     const arrowX = gsap.quickTo(arrow, 'x', { duration: 0.3, ease: 'power2.out' });

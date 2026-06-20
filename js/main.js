@@ -10,9 +10,10 @@ function createWorkCard(project) {
 
   if (project.status === 'live') {
     card.innerHTML = `
-      <a class="thumb" href="${project.link}" target="_blank" rel="noreferrer">
+      <div class="thumb">
         <img src="${project.image}" alt="${project.title} homepage preview" loading="lazy">
-      </a>
+        <span class="thumb-badge mono-label">Live preview</span>
+      </div>
       <div class="project-meta">
         <div class="mono-label">${project.tag}</div>
         <div class="project-head">
@@ -20,6 +21,9 @@ function createWorkCard(project) {
           <svg class="icon project-arrow" aria-hidden="true" width="20" height="20"><use href="#hi-arrow-up-right-01"></use></svg>
         </div>
         <p class="project-desc">${project.desc}</p>
+        <a class="btn btn-secondary project-link" href="${project.link}" target="_blank" rel="noreferrer">Open live site
+          <svg class="icon" aria-hidden="true" width="18" height="18"><use href="#hi-arrow-up-right-01"></use></svg>
+        </a>
       </div>
     `;
   } else {
@@ -32,7 +36,7 @@ function createWorkCard(project) {
         <div class="project-head">
           <h3>${project.title}</h3>
         </div>
-        <p class="project-desc">Reserved - same card footprint, no link, dashed border.</p>
+        <p class="project-desc">Coming soon. Same footprint, no link yet.</p>
       </div>
     `;
   }

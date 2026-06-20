@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "VSV Legal Chambers",
     tag: "LAW FIRM",
-    desc: "Multi-office site for a Punjab and Haryana High Court advocate - practice areas, consultation booking, and a blog.",
+    desc: "Legal site for a Punjab and Haryana High Court practice. Practice areas, consultation flow, and publishing.",
     image: "assets/images/projects/vsv-legal.svg",
     link: "https://www.vsvlegalchambers.com/",
     status: "live",
@@ -11,7 +11,7 @@ export const projects = [
   {
     title: "TechBar",
     tag: "E-COMMERCE",
-    desc: "Next.js storefront for a Portugal-based electronics retailer - categories, cart, Klarna pay-later, and repair booking.",
+    desc: "Storefront for a Portugal-based electronics retailer. Browsing, cart flow, pay-later checkout, and repair booking.",
     image: "assets/images/projects/techbar.svg",
     link: "https://www.techbar.store/",
     status: "live",
@@ -20,7 +20,7 @@ export const projects = [
   {
     title: "AC BuildTech",
     tag: "CONSTRUCTION",
-    desc: "Corporate site for a construction company - 15+ project portfolio, services, and team pages.",
+    desc: "Corporate site for a construction firm. Project archive, services, and team pages.",
     image: "assets/images/projects/acbuildtech.svg",
     link: "https://acbuildtechltd.com/",
     status: "live",
@@ -28,7 +28,7 @@ export const projects = [
   },
   {
     title: "CRM",
-    tag: "IN PROGRESS",
+    tag: "COMING SOON",
     desc: "",
     image: "",
     link: "",
@@ -37,7 +37,7 @@ export const projects = [
   },
   {
     title: "Factory Agentic System",
-    tag: "IN PROGRESS",
+    tag: "COMING SOON",
     desc: "",
     image: "",
     link: "",
