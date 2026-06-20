@@ -263,12 +263,18 @@
   display: grid;
   place-items: center;
   aspect-ratio: auto;
-  min-height: 170px;
+  min-height: 190px;
   border-style: dashed;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.04), transparent 58%),
+    var(--surface-hover);
 }
 
 .work-card-empty .thumb .icon {
-  opacity: 0.5;
+  opacity: 0.72;
+  color: var(--muted);
+  width: 34px;
+  height: 34px;
 }
 
 .work-card-empty .project-meta {
