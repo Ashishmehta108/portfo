@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "VSV Legal Chambers",
     tag: "LAW FIRM",
-    desc: "Legal site for a Punjab and Haryana High Court practice. Practice areas, consultation flow, and publishing.",
+    desc: "Comprehensive digital presence for a high-court advocate. Featuring automated consultation scheduling and a high-performance practice-area repository built on Next.js.",
     image: "assets/images/projects/vsv-legal.svg",
     link: "https://www.vsvlegalchambers.com/",
     status: "live",
@@ -11,7 +11,7 @@ export const projects = [
   {
     title: "TechBar",
     tag: "E-COMMERCE",
-    desc: "Storefront for a Portugal-based electronics retailer. Browsing, cart flow, pay-later checkout, and repair booking.",
+    desc: "Enterprise-grade e-commerce storefront for a European electronics retailer. Integrated with Klarna and a custom repair-tracking system for seamless retail operations.",
     image: "assets/images/projects/techbar.svg",
     link: "https://www.techbar.store/",
     status: "live",
@@ -20,7 +20,7 @@ export const projects = [
   {
     title: "AC BuildTech",
     tag: "CONSTRUCTION",
-    desc: "Corporate site for a construction firm. Project archive, services, and team pages.",
+    desc: "High-fidelity corporate portfolio for a construction firm. Showcasing 15+ large-scale residential and commercial developments with a focus on technical precision.",
     image: "assets/images/projects/acbuildtech.svg",
     link: "https://acbuildtechltd.com/",
     status: "live",

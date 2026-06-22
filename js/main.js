@@ -3,27 +3,26 @@ import { initThemeToggle, initMobileMenu } from './theme.js';
 import { initMotion } from './motion.js';
 
 function createWorkCard(project) {
-  const card = document.createElement('article');
+  const card = document.createElement(project.status === 'live' ? 'a' : 'article');
   card.className = `work-card ${project.status === 'soon' ? 'work-card-empty' : ''}`;
   card.dataset.span = String(project.span);
   card.dataset.status = project.status;
 
   if (project.status === 'live') {
+    card.href = project.link;
+    card.target = "_blank";
+    card.rel = "noreferrer";
     card.innerHTML = `
       <div class="thumb">
         <img src="${project.image}" alt="${project.title} homepage preview" loading="lazy">
-        <span class="thumb-badge mono-label">Live preview</span>
       </div>
       <div class="project-meta">
-        <div class="mono-label">${project.tag}</div>
         <div class="project-head">
-          <h3>${project.title}</h3>
-          <svg class="icon project-arrow" aria-hidden="true" width="20" height="20"><use href="#hi-arrow-up-right-01"></use></svg>
+          <div class="mono-label">${project.tag}</div>
+          <svg class="icon project-arrow" aria-hidden="true" width="24" height="24"><use href="#hi-arrow-up-right-01"></use></svg>
         </div>
+        <h3>${project.title}</h3>
         <p class="project-desc">${project.desc}</p>
-        <a class="btn btn-secondary project-link" href="${project.link}" target="_blank" rel="noreferrer">Open live site
-          <svg class="icon" aria-hidden="true" width="18" height="18"><use href="#hi-arrow-up-right-01"></use></svg>
-        </a>
       </div>
     `;
   } else {
@@ -36,7 +35,7 @@ function createWorkCard(project) {
         <div class="project-head">
           <h3>${project.title}</h3>
         </div>
-        <p class="project-desc">Coming soon. Same footprint, no link yet.</p>
+        <p class="project-desc">Currently in development. Reserved for enterprise systems.</p>
       </div>
     `;
   }
@@ -64,6 +63,18 @@ function initContactForm() {
   if (!form) return;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+    const btn = form.querySelector('button');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Brief Sent';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 3000);
+    }, 1500);
   });
 }
 

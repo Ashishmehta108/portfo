@@ -1,83 +1,76 @@
 export function initMotion() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isReduced) return;
+
+  // Initialize GSAP
   if (!window.gsap) return;
   if (window.ScrollTrigger) {
-    gsap.registerPlugin(window.ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
   }
 
-  if (reduceMotion) {
-    gsap.globalTimeline.timeScale(50);
-  }
+  // Hero Reveal
+  const heroTl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
+  heroTl
+    .from('.hero-title', { y: 40, opacity: 0, delay: 0.2 })
+    .from('.hero-copy', { y: 20, opacity: 0 }, '-=0.8')
+    .from('.hero-actions', { y: 20, opacity: 0 }, '-=0.8')
+    .from('.hero-proof', { x: 40, opacity: 0 }, '-=1')
+    .from('.hero-trust li', { y: 10, opacity: 0, stagger: 0.1 }, '-=0.8');
 
-  const heroLines = document.querySelectorAll('.hero-line');
-  if (heroLines.length) {
-    gsap.from(heroLines, {
-      y: 24,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: 0.05,
-    });
-  }
-
-  const revealItems = document.querySelectorAll('.reveal');
-  if (!reduceMotion && revealItems.length) {
-    gsap.set(revealItems, { y: 24, opacity: 0 });
-  }
-
-  if (!reduceMotion && window.ScrollTrigger && revealItems.length) {
-    ScrollTrigger.batch(revealItems, {
-      start: 'top 85%',
-      onEnter: (batch) => {
-        gsap.fromTo(batch, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out', stagger: 0.08, overwrite: true });
+  // Scroll Reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  revealElements.forEach((el) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        toggleActions: 'play none none none',
       },
-      once: true,
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
     });
-  } else if (reduceMotion && revealItems.length) {
-    gsap.set(revealItems, { y: 0, opacity: 1 });
-  }
-
-  const cards = document.querySelectorAll('.work-card[data-status="live"]');
-  cards.forEach((card) => {
-    const img = card.querySelector('iframe, img');
-    const arrow = card.querySelector('.project-arrow');
-    if (!img || !arrow) return;
-    const arrowX = gsap.quickTo(arrow, 'x', { duration: 0.3, ease: 'power2.out' });
-    const arrowOpacity = gsap.quickTo(arrow, 'opacity', { duration: 0.3, ease: 'power2.out' });
-
-    const enter = () => {
-      gsap.to(img, { filter: 'grayscale(0) contrast(1.05)', duration: 0.35, ease: 'power2.out', overwrite: true });
-      arrowX(0);
-      arrowOpacity(1);
-    };
-
-    const leave = () => {
-      gsap.to(img, { filter: 'grayscale(1) contrast(1.05)', duration: 0.3, ease: 'power2.out', overwrite: true });
-      arrowX(-4);
-      arrowOpacity(0);
-    };
-
-    card.addEventListener('mouseenter', enter);
-    card.addEventListener('mouseleave', leave);
-    card.addEventListener('focusin', enter);
-    card.addEventListener('focusout', leave);
   });
 
+  // Sticky Nav State
   const nav = document.querySelector('.nav');
   if (nav) {
-    let ticking = false;
-    const updateNav = () => {
-      const scrolled = window.scrollY > 80;
-      nav.classList.toggle('is-scrolled', scrolled);
-      ticking = false;
-    };
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateNav);
-      }
-    }, { passive: true });
-    updateNav();
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        if (self.direction === 1) {
+          nav.classList.add('is-scrolled');
+        } else if (self.scroll() < 80) {
+          nav.classList.remove('is-scrolled');
+        }
+      },
+    });
   }
+
+  // Magnetic Buttons (Subtle)
+  const magneticBtns = document.querySelectorAll('.btn-primary');
+  magneticBtns.forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      gsap.to(btn, {
+        x: x * 0.15,
+        y: y * 0.15,
+        duration: 0.4,
+        ease: 'power2.out'
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.5)'
+      });
+    });
+  });
 }
